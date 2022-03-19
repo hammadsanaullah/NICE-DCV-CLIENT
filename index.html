@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+    <head> 
+        <title>DCV first connection</title>
+    <script>
+var URL="";
+
+function getUrl () {
+    r=document.getElementById("urlt");
+    URL=r.value;
+    console.log("URL " + URL);
+    main(); 
+}
+    </script>
+    </head> 
+    <body  style="font-family: arial;     border-radius: 5px; "> 
+        <script type="module" src="./main.js"></script>
+
+    <div id="URL">Please enter the URL for the DCV server to connect to:
+      <input style="background: #89c789; color: #100a0c; border-radius: 6px;" type="text"
+	     onChange="getUrl()" id="urlt"></input> and hit return.</div>
+    <div><p>After entering the URL you will be prompted for username and password in the form below.
+      <p/>
+	After clicking "Login" the connection to your DCV server will be established
+	- this will take a few seconds so please be patient. In the meantime you may
+	monitor the javascript console (F12) for some messages.
+    </div>
+ 
+    <h1 id="form2" style="display: none; font-family: arial;">Login to DCV </h1>
+        <div id="dcv-display"
+	    style="box-shadow: #333 5px 5px 15px; margin-top: 30px;"></div>
+    </body> 
+</html>
