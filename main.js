@@ -83,6 +83,10 @@ function connect (sessionId, authToken) {
     }).then(function (conn) {
         console.log("Connection established!");
         connection= conn;
+        connection.enterRelativeMouseMode();
+        let stats = connection.getStats();
+        console.log("FPS: " + stats.fps + " Latency: " + stats.latency);
+        connection.setMicrophone(true);
     }).catch(function (error) {
         console.log("Connection failed with error " + error.message);
     });
