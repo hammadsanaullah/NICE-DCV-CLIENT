@@ -36,6 +36,7 @@ function main () {
             success: onSuccess
         }
     );
+    connection.requestResolution(800, 600);
 }
 
 window.main = main;
@@ -62,9 +63,6 @@ function onSuccess(auth, result) {
     let {sessionId, authToken} = {...result[0]};
 
     connect(sessionId, authToken);
-    connection.setMicrophone(true);
-    let stats = connection.getStats();
-    console.log("FPS: " + stats.fps + " Latency: " + stats.latency);
 }
 
 function connect (sessionId, authToken) {
