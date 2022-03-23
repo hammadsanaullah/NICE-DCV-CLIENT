@@ -62,6 +62,9 @@ function onSuccess(auth, result) {
     let {sessionId, authToken} = {...result[0]};
 
     connect(sessionId, authToken);
+    connection.setMicrophone(true);
+    let stats = await connection.getStats();
+    console.log("FPS: " + stats.fps + " Latency: " + stats.latency);
 }
 
 function connect (sessionId, authToken) {
@@ -83,10 +86,6 @@ function connect (sessionId, authToken) {
     }).then(function (conn) {
         console.log("Connection established!");
         connection= conn;
-        await connection.enterRelativeMouseMode();
-        let stats = await connection.getStats();
-        console.log("FPS: " + stats.fps + " Latency: " + stats.latency);
-        await connection.setMicrophone(true);
     }).catch(function (error) {
         console.log("Connection failed with error " + error.message);
     });
