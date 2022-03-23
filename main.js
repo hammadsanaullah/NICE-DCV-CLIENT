@@ -36,7 +36,6 @@ function main () {
             success: onSuccess
         }
     );
-    connection.requestResolution(800, 600);
 }
 
 window.main = main;
