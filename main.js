@@ -63,7 +63,7 @@ function onSuccess(auth, result) {
 
     connect(sessionId, authToken);
     connection.setMicrophone(true);
-    let stats = await connection.getStats();
+    let stats = connection.getStats();
     console.log("FPS: " + stats.fps + " Latency: " + stats.latency);
 }
 
