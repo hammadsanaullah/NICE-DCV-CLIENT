@@ -21,10 +21,10 @@ function main () {
     console.log("Setting log level to INFO");
     dcv.setLogLevel(dcv.LogLevel.INFO);
     
-    serverUrl = "https://your-dcv-server-url:port/";
-    if (window.URL != "") {
-	serverUrl = window.URL;
-    }
+    serverUrl = "https://ec2-18-207-251-204.compute-1.amazonaws.com:8443/";
+    // if (window.URL != "") {
+	// serverUrl = window.URL;
+    // }
     
     console.log("Starting authentication with", serverUrl);
     
@@ -43,7 +43,7 @@ window.main = main;
 function O1_onPromptCredentials(auth, challenge) {
     // Let's check if in challege we have a username and password request
     if (challengeHasField(challenge, "username") && challengeHasField(challenge, "password")) {
-        auth.sendCredentials({username: "my_dcv_user", password: "my_password"})
+        auth.sendCredentials({username: "Administrator", password: "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh"})
     } else {
         // Challenge is requesting something else...
     }
