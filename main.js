@@ -140,6 +140,7 @@ function addInput (name) {
 
 function onPromptCredentials (_, credentialsChallenge) {
     // createLoginForm();
+    console.log("I am in onPrompt");
     submitCredentials;
     credentialsChallenge.requiredCredentials.forEach(challenge => addInput(challenge.name));
 }
