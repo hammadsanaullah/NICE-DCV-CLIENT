@@ -134,7 +134,7 @@ function addInput (name) {
     inputField.style.width = "60";
     inputField.style.boxShadow = "grey 5px 5px 9px;";
     inputField.style.borderRadius = "6px;";
-    fieldSet.appendChild(inputField);
+    // fieldSet.appendChild(inputField);
     inputField.style.cssText = 'width: 90px; margin: 6px; box-shadow: grey 1px 1px 6px; font-size: 120%; padding: 3px;';
 } 
 
