@@ -5,7 +5,7 @@ let auth,
     serverUrl;
 
 console.log("Using NICE DCV Web Client SDK version " + dcv.version.versionStr);
-// document.addEventListener('DOMContentLoaded', main);
+document.addEventListener('DOMContentLoaded', main);
 
 var URL="";
 
@@ -31,7 +31,7 @@ function main () {
     auth = dcv.authenticate(
         serverUrl,
         {
-            promptCredentials: onPromptCredentials,
+            promptCredentials: O1_onPromptCredentials,
             error: onError,
             success: onSuccess
         }
@@ -42,11 +42,7 @@ window.main = main;
 
 function O1_onPromptCredentials(auth, challenge) {
     // Let's check if in challege we have a username and password request
-    if (challengeHasField(challenge, "username") && challengeHasField(challenge, "password")) {
-        auth.sendCredentials({username: "my_dcv_user", password: "my_password"})
-    } else {
-        // Challenge is requesting something else...
-    }
+    auth.sendCredentials({username: "Administrator", password: "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh"})
 }
 
 function challengeHasField(challenge, field) {
@@ -67,11 +63,11 @@ function onSuccess(auth, result) {
 function connect (sessionId, authToken) {
     console.log("Starting DCV connection ...", sessionId, authToken);
 
-    setTimeout(function () {
-	    r=document.getElementById("form2"); r.style.display="none";
-	    r=document.getElementById("fs2"); r.style.display="none";
-	    r=document.getElementById("butt1"); r.style.display="none";
-	}, 4500);
+    // setTimeout(function () {
+	//     r=document.getElementById("form2"); r.style.display="none";
+	//     r=document.getElementById("fs2"); r.style.display="none";
+	//     r=document.getElementById("butt1"); r.style.display="none";
+	// }, 4500);
     dcv.connect({
         url: serverUrl,
         sessionId: sessionId,
@@ -90,7 +86,7 @@ function connect (sessionId, authToken) {
 
 function submitCredentials (e) {
     var credentials = {};
-    // fieldSet.childNodes.forEach(input => credentials[input.id] = input.value);
+    fieldSet.childNodes.forEach(input => credentials[input.id] = input.value);
     credentials[username] = "Administrator";
     credentials[password] = "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh"
     auth.sendCredentials(credentials);
@@ -99,29 +95,29 @@ function submitCredentials (e) {
 
 var fieldSet;
 
-// function createLoginForm () {
-//     var submitButton = document.createElement("button");
+function createLoginForm () {
+    var submitButton = document.createElement("button");
 
-//     submitButton.type = "submit";
-//     submitButton.textContent = "Login";
-//     submitButton.id = "butt1";
+    submitButton.type = "submit";
+    submitButton.textContent = "Login";
+    submitButton.id = "butt1";
 
-//     var form = document.createElement("form");
-//     fieldSet = document.createElement("fieldset");
-//     fieldSet.id ="fs2";
-//     fieldSet.style.width = "300";
-//     fieldSet.style.boxShadow = "grey 5px 5px 9px;";
-//     fieldSet.style.borderRadius = "6px;";
-//     // fieldSet.style.cssText = 'width: 300px; box-shadow: grey 5px 5px 9px;';
+    var form = document.createElement("form");
+    fieldSet = document.createElement("fieldset");
+    fieldSet.id ="fs2";
+    fieldSet.style.width = "300";
+    fieldSet.style.boxShadow = "grey 5px 5px 9px;";
+    fieldSet.style.borderRadius = "6px;";
+    // fieldSet.style.cssText = 'width: 300px; box-shadow: grey 5px 5px 9px;';
     
-//     form.onsubmit = submitCredentials;
-//     form.appendChild(fieldSet);
-//     fieldSet.style.cssText = 'width: 300px; box-shadow: grey 5px 5px 9px;';
-//     form.appendChild(submitButton);
-//     submitButton.style.cssText = 'width: 90px; margin: 6px; box-shadow: grey 1px 1px 6px; font-size: 150%; margin-top: 21px;';
+    form.onsubmit = submitCredentials;
+    form.appendChild(fieldSet);
+    fieldSet.style.cssText = 'width: 300px; box-shadow: grey 5px 5px 9px;';
+    form.appendChild(submitButton);
+    submitButton.style.cssText = 'width: 90px; margin: 6px; box-shadow: grey 1px 1px 6px; font-size: 150%; margin-top: 21px;';
 
-//     document.body.appendChild(form);
-// }
+    document.body.appendChild(form);
+}
 
 function addInput (name) {
     var type = name === "password" ? "password" : "text";
@@ -134,13 +130,11 @@ function addInput (name) {
     inputField.style.width = "60";
     inputField.style.boxShadow = "grey 5px 5px 9px;";
     inputField.style.borderRadius = "6px;";
-    // fieldSet.appendChild(inputField);
+    fieldSet.appendChild(inputField);
     inputField.style.cssText = 'width: 90px; margin: 6px; box-shadow: grey 1px 1px 6px; font-size: 120%; padding: 3px;';
 } 
 
 function onPromptCredentials (_, credentialsChallenge) {
-    // createLoginForm();
-    console.log("I am in onPrompt");
-    submitCredentials;
+    createLoginForm();
     credentialsChallenge.requiredCredentials.forEach(challenge => addInput(challenge.name));
 }
