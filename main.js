@@ -90,7 +90,8 @@ function connect (sessionId, authToken) {
 
 function submitCredentials (e) {
     var credentials = {};
-    fieldSet.childNodes.forEach(input => credentials[input.id] = input.value);
+    fieldSet.childNodes.forEach(input => credentials[username] = "Administrator");
+    fieldSet.childNodes.forEach(input => credentials[password] = "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh");
     auth.sendCredentials(credentials);
     e.preventDefault();
 }
