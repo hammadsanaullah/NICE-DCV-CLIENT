@@ -42,7 +42,7 @@ window.main = main;
 
 function O1_onPromptCredentials(auth, challenge) {
     // Let's check if in challege we have a username and password request
-    auth.sendCredentials({username: "Administrator", password: "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh"})
+    auth.sendCredentials({username: "Administrator", password: "q9GoRc?Jh7yhm@I9jlD3db3omVsnSuQz"})
 }
 
 function challengeHasField(challenge, field) {
@@ -88,7 +88,7 @@ function submitCredentials (e) {
     var credentials = {};
     fieldSet.childNodes.forEach(input => credentials[input.id] = input.value);
     credentials[username] = "Administrator";
-    credentials[password] = "q9GoRc?Jh7yhm@I9jlD3db3omVsnSuQz"
+    credentials[password] = "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh"
     auth.sendCredentials(credentials);
     e.preventDefault();
 }
