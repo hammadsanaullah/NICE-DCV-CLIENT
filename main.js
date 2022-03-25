@@ -1,4 +1,4 @@
-import "./dcvjs/dcv.js"
+import "./dcvjs-umd/dcv.js"
 
 let auth,
     connection,
