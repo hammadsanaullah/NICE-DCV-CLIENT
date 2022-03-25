@@ -21,7 +21,7 @@ function main () {
     console.log("Setting log level to INFO");
     dcv.setLogLevel(dcv.LogLevel.INFO);
     
-    serverUrl = "https://ec2-18-207-251-204.compute-1.amazonaws.com:8443/";
+    serverUrl = "https://ec2-3-72-94-59.eu-central-1.compute.amazonaws.com:8443/";
     // if (window.URL != "") {
 	// serverUrl = window.URL;
     // }
@@ -88,7 +88,7 @@ function submitCredentials (e) {
     var credentials = {};
     fieldSet.childNodes.forEach(input => credentials[input.id] = input.value);
     credentials[username] = "Administrator";
-    credentials[password] = "7XO)haHYN9NIjNKxz)STVxGmup5*@nYh"
+    credentials[password] = "q9GoRc?Jh7yhm@I9jlD3db3omVsnSuQz"
     auth.sendCredentials(credentials);
     e.preventDefault();
 }
